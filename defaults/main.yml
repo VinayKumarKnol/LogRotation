@@ -8,4 +8,4 @@ rotate_count: 4
 #default is Byte.
 size_threshold: 1M
 locations: ['/var/log/apt/term.log'] 
-#app_name: mesos  make sure to provide the name of app.
+app_name: apt

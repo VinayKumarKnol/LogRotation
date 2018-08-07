@@ -1,9 +1,19 @@
 --- 
+#- name: "Install logrotate"
+#  yum: name=logrotate
+#  tags: 
+#    - rotate_log
+
+#- name: install the latest version of LogRotate
+#  dnf:
+#    name: logrotate
+#    state: latest    
+
 - name: "Install logrotate"
-  yum: name=logrotate
+  apt: name=logrotate state=present
   tags: 
     - rotate_log
-    
+
 - name: "Generating conf for {{ app_name }}"
   template:
     src: "{{ role_path }}/templates/conf.j2" 
