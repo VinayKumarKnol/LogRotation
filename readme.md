@@ -1,6 +1,6 @@
-###This is an Ansible Role. 
+#This is an Ansible Role. 
 
-#Make sure to follow the following Directory structure.
+###Make sure to follow the following Directory structure.
 ```
 YOUR-FOLDER/
 ├── playbook.yml
@@ -15,7 +15,7 @@ YOUR-FOLDER/
 ```
 
 
-##To Run the Ansible-Playbook
+###To Run the Ansible-Playbook
 
 ```
  #To run on local host
