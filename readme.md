@@ -1,5 +1,6 @@
 This is an Ansible Role. 
 Make sure to follow the following Directory structure.
+```
 YOUR-FOLDER/
 ├── playbook.yml
 └── roles
@@ -10,8 +11,7 @@ YOUR-FOLDER/
         │   └── main.yml
         └── templates
             └── conf.j2
-
-
+```
 
 
 
