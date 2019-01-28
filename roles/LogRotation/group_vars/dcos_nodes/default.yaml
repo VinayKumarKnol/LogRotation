@@ -1,0 +1,15 @@
+---
+period:daily
+rotate_count:4
+size_threshold:1M
+locations:['/var/lib/docker/containers/*/*-json.log',
+           '/var/lib/docker/overlay/*/root/var/log/*.log',
+           'var/lib/docker/overlay/*/root/usr/share/doc/openjdk-7-jre-headless/test-amd64/*.log',
+           '/var/lib/docker/overlay/*/root/var/log/nginx/*.log',
+           '/var/lib/docker/overlay/*/root/*.log',
+           '/var/lib/docker/overlay/*/root/tmp/*.log',
+           '/var/lib/docker/overlay/*/root/usr/lib/rpm/*.log',
+           '/var/lib/docker/overlay/*/root/var/log/anaconda/*.log',
+           '/var/lib/docker/overlay/*/root/var/log/*.log',
+           '/run/docker/libcontainerd/containerd/events.log']
+
