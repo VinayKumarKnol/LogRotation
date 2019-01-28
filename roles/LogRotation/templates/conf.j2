@@ -4,7 +4,9 @@
   rotate {{ rotate_count }}
   size {{ size_threshold }}
   compress
+  delaycompress
   copytruncate
   missingok
+  notifempty
  }
 {% endfor %}
