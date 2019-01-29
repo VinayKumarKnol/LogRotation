@@ -1,0 +1,5 @@
+#[elasticsearch-hp-it-cloud]
+#localhost          ansible_ssh_host=127.0.0.1 ansible_connection=local
+
+[dcos]
+localhost          ansible_ssh_host=127.0.0.1 ansible_connection=local
