@@ -1,12 +1,14 @@
-{% for log_location in locations %}
-{{ log_location }}{
-  {{ period }}
-  rotate {{ rotate_count }}
-  size {{ size_threshold }}
-  compress
-  delaycompress
-  copytruncate
-  missingok
-  notifempty
- }
+{% for config in dcos_node %}
+ {% for path in config['paths'] %}
+   {{ path }}{
+       {{ config['period'] }}
+       rotate {{ config['rotate_count'] }}
+       size {{ config['size_threshold'] }}
+       compress
+       delaycompress
+       copytruncate
+       missingok
+       notifempty
+    }
+  {% endfor %}
 {% endfor %}

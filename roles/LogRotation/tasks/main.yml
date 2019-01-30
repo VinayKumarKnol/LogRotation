@@ -9,10 +9,10 @@
 #    name: logrotate
 #    state: latest    
 
-- name: "Install logrotate"
-  apt: name=logrotate state=present
-  tags: 
-    - rotate_log
+#- name: "Install logrotate"
+#  apt: name=logrotate state=present
+#  tags: 
+#    - rotate_log
 
 - name: "Generating conf for {{ app_name }}"
   template:
