@@ -1,9 +1,34 @@
 ---
 
-period: daily
-rotate_count: 4
-size_threshold: 1M
-locations: ['/opt/mount1/monit-*/logs/*.log', '/opt/mount1/elasticsearch-*/logs/*.log', 
-'/usr/lib/vmware-*/pme/bin/*.log', '/var/log/*.log']
-app_name: external_node           
+optLogs:
+  period: daily
+  rotate_count: 4
+  size_threshold: 1M
+  paths: 
+    - /opt/mount1/monit-*/logs/*.log
+    - /opt/mount1/elasticsearch-*/logs/*.log
 
+usrLogs:
+  period: weekly
+  rotate_count: 3
+  size_threshold: 1K
+  paths: 
+    - /usr/lib/vmware-*/pme/bin/*.log
+
+varLogs:
+  period: daily
+  rotate_count: 2
+  size_threshold: 1M
+  paths: 
+    - /var/log/*.log
+
+#['/opt/mount1/monit-*/logs/*.log', '/opt/mount1/elasticsearch-*/logs/*.log', 
+#'/usr/lib/vmware-*/pme/bin/*.log', '/var/log/*.log']
+           
+
+locations_to_rotate:
+  - "{{ optLogs }}"
+  - "{{ usrLogs }}"
+  - "{{ varLogs }}"
+
+app_name: external_node

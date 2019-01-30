@@ -1,4 +1,4 @@
-{% for config in dcos_node %}
+{% for config in locations_to_rotate %}
  {% for path in config['paths'] %}
    {{ path }}{
        {{ config['period'] }}

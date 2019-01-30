@@ -19,7 +19,7 @@ docker_weekly:
     - /var/lib/docker/overlay/*/root/tmp/*.log
     - /var/lib/docker/overlay/*/root/usr/lib/rpm/*.log
 
-dcos_node:
+locations_to_rotate:
    - "{{ docker_daily }}"
    - "{{ docker_weekly }}"
 
