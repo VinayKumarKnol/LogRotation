@@ -14,10 +14,10 @@
 #  tags: 
 #    - rotate_log
 
-- name: "Generating conf for {{ app_name }}"
+- name: "Generating conf for Logrotation"
   template:
     src: "{{ role_path }}/templates/conf.j2" 
-    dest: "/opt/{{ app_name }}.conf"
+    dest: "/opt/test.conf"
   tags: 
     - rotate_log
    

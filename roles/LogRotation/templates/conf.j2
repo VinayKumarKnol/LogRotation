@@ -1,6 +1,6 @@
 
 
-{% if inventory_hostname in groups['dcos'] %}
+{% if inventory_hostname in groups['dcos'] | default([]) %}
  {% for config in dcos_lr_conf %}
   {% for path in config['paths'] %}
     {{ path }}{
@@ -17,7 +17,7 @@
  {% endfor %}
 {% endif %}
 
-{% if inventory_hostname in groups['elasticsearch-hp-it-cloud'] %}
+{% if inventory_hostname in groups['elasticsearch-hp-it-cloud'] | default([]) %}
  {% for config in elasticsearch_lr_conf %}
   {% for path in config['paths'] %}
     {{ path }}{

@@ -1,5 +1,6 @@
 ---
 
+## Locations with configurations to use. ##
 docker_daily:
   period: daily
   rotate_count: 4
@@ -41,6 +42,9 @@ varLogs:
   paths: 
     - /var/log/*.log
 
+
+
+## Master variables used within template ##
 dcos_lr_conf:
   - "{{ optLogs }}"
   - "{{ usrLogs }}"
