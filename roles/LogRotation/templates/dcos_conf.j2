@@ -1,0 +1,18 @@
+
+{% if inventory_hostname in groups['dcos'] | default([]) %}
+ {% for config in dcos_lr_conf %}
+  {% for path in config['paths'] %}
+{{ path }}{
+ {{ config['period'] }}
+ rotate {{ config['rotate_count'] }}
+ size {{ config['size_threshold'] }}
+ compress
+ delaycompress
+ copytruncate
+ missingok
+ notifempty
+ }
+   {% endfor %}
+ {% endfor %}
+{% endif %}
+

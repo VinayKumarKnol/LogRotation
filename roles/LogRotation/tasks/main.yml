@@ -16,18 +16,24 @@
 
 - name: "Generating conf for Logrotation"
   template:
-    src: "{{ role_path }}/templates/conf.j2" 
-    dest: "/opt/test.conf"
+    src: "{{ role_path }}/templates/{{ item.name }}.j2" 
+    dest: "/etc/logrotate.d/{{ item.name }}.conf"
+  with_items:
+    - { name: dcos_conf }
+    - { name: elasticsearch_conf }
   tags: 
     - rotate_log
    
     
-#- name: "Rotate data from {{ app_name }}"
-#  command: "logrotate /etc/logrotate.d/{{ app_name }}.conf"
-#  register: result
-#  failed_when: "'FAILED' in result.stderr"
-#  tags: 
-#    - rotate_log
+- name: "Intiating Log Rotation for each configuration."
+  command: "logrotate /etc/logrotate.d/{{ item.name }}.conf"
+  register: result
+  failed_when: "'FAILED' in result.stderr"
+  with_items:
+    - { name: dcos_conf }
+    - { name: elasticsearch_conf }
+  tags: 
+    - rotate_log
 
 
 
