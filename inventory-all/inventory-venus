@@ -1,0 +1,123 @@
+########## Group Vars ##########
+[hpit:children]
+hpit-csa2
+
+[hpit-csa2:children]
+dcos_bootstrap
+mesos-agent-virtual
+
+[dcos-enterprise:children]
+dcos_bootstrap
+
+[dcos-enterprise:vars]
+dcos_cluster_name=Venus
+fault_domain=true
+
+[dcos:children]
+dcos-cluster
+dcos_bootstrap
+
+[dcos-cluster:children]
+mesos-master
+mesos-agent
+
+[public-agent]
+#DCOS-Venus-S1-agent1
+DCOS-Venus-S2-agent2
+
+########## Normal Group ##########
+[gather-facts-master]
+#DCOS-Venus-S1-master1
+#DCOS-Venus-S1-master2
+#DCOS-Venus-S1-master3
+
+[gather-facts-group]
+#DCOS-Venus-S1-boostrap
+#DCOS-Venus-S1-master1
+#DCOS-Venus-S1-master2
+#DCOS-Venus-S1-master3
+
+[mesos-agent-virtual:children]
+mesos-agent-virtual-h4
+mesos-agent-virtual-h9
+
+[mesos-agent-virtual-h4]
+
+[mesos-agent-virtual-h4:vars]
+DCOS_REGION=H4
+DCOS_ZONE=cloud
+
+[mesos-agent-virtual-h9]
+#DCOS-Venus-S1-agent1    
+DCOS-Venus-S2-agent2
+#DCOS-Venus-S2-agent3         
+#DCOS-Venus-S2-agent4         
+#DCOS-Venus-S2-agent5         
+#DCOS-Venus-S2-agent6         
+#DCOS-Venus-S3-agent7        
+#DCOS-Venus-S3-agent8         
+#DCOS-Venus-S3-agent9
+#DCOS-Venus-S3-agent10
+#DCOS-Venus-S3-agent11
+#DCOS-Venus-S4-agent12
+#DCOS-Venus-S4-agent13
+#DCOS-Venus-S4-agent14
+#DCOS-Venus-S4-agent15
+#DCOS-Venus-S4-agent16
+#DCOS-Venus-S5-agent17
+#DCOS-Venus-S5-agent18
+#DCOS-Venus-S5-agent19
+#DCOS-Venus-S5-agent20
+#DCOS-Venus-S5-agent21
+#DCOS-Venus-S6-agent22
+#DCOS-Venus-S6-agent23
+#DCOS-Venus-S6-agent24
+#DCOS-Venus-S6-agent25
+#DCOS-Venus-S6-agent26
+
+[mesos-agent-virtual-h9:vars]
+DCOS_REGION=H9
+DCOS_ZONE=cloud
+
+########## Top Level Role (defined in playbook)##########
+[dcos_bootstrap]
+#DCOS-Venus-S1-boostrap       ansible_ssh_host=hc9t07642.itcs.hpecorp.net
+
+[mesos-master]
+#DCOS-Venus-S1-master1        ansible_ssh_host=hc9t07643.itcs.hpecorp.net
+#DCOS-Venus-S1-master2        ansible_ssh_host=hc9t07644.itcs.hpecorp.net
+#DCOS-Venus-S1-master3        ansible_ssh_host=hc9t07645.itcs.hpecorp.net
+
+[mesos-agent-private]
+#DCOS-Venus-S2-agent3         ansible_ssh_host=hc9t07653.itcs.hpecorp.net
+#DCOS-Venus-S2-agent4         ansible_ssh_host=hc9t07654.itcs.hpecorp.net
+#DCOS-Venus-S2-agent5         ansible_ssh_host=hc9t07655.itcs.hpecorp.net
+#DCOS-Venus-S2-agent6         ansible_ssh_host=hc9t07656.itcs.hpecorp.net
+#DCOS-Venus-S3-agent7         ansible_ssh_host=hc9t07657.itcs.hpecorp.net
+#DCOS-Venus-S3-agent8         ansible_ssh_host=hc9t07658.itcs.hpecorp.net
+#DCOS-Venus-S3-agent9         ansible_ssh_host=hc9t07659.itcs.hpecorp.net
+#DCOS-Venus-S3-agent10        ansible_ssh_host=hc9t07660.itcs.hpecorp.net
+#DCOS-Venus-S3-agent11        ansible_ssh_host=hc9t07661.itcs.hpecorp.net
+#DCOS-Venus-S4-agent12        ansible_ssh_host=hc9t07666.itcs.hpecorp.net
+#DCOS-Venus-S4-agent13        ansible_ssh_host=hc9t07667.itcs.hpecorp.net
+#DCOS-Venus-S4-agent14        ansible_ssh_host=hc9t07668.itcs.hpecorp.net
+#DCOS-Venus-S4-agent15        ansible_ssh_host=hc9t07669.itcs.hpecorp.net
+#DCOS-Venus-S4-agent16        ansible_ssh_host=hc9t07670.itcs.hpecorp.net
+#DCOS-Venus-S5-agent17        ansible_ssh_host=hc9t07671.itcs.hpecorp.net
+#DCOS-Venus-S5-agent18        ansible_ssh_host=hc9t07672.itcs.hpecorp.net
+#DCOS-Venus-S5-agent19        ansible_ssh_host=hc9t07673.itcs.hpecorp.net
+#DCOS-Venus-S5-agent20        ansible_ssh_host=hc9t07674.itcs.hpecorp.net
+#DCOS-Venus-S5-agent21        ansible_ssh_host=hc9t07675.itcs.hpecorp.net
+#DCOS-Venus-S6-agent22        ansible_ssh_host=hc9t07676.itcs.hpecorp.net
+#DCOS-Venus-S6-agent23        ansible_ssh_host=hc9t07677.itcs.hpecorp.net
+#DCOS-Venus-S6-agent24        ansible_ssh_host=hc9t07678.itcs.hpecorp.net
+#DCOS-Venus-S6-agent25        ansible_ssh_host=hc9t07679.itcs.hpecorp.net
+#DCOS-Venus-S6-agent26        ansible_ssh_host=hc9t07680.itcs.hpecorp.net
+
+[mesos-agent-public]
+#DCOS-Venus-S1-agent1         ansible_ssh_host=hc9t07646.itcs.hpecorp.net    
+DCOS-Venus-S2-agent2         ansible_ssh_host=hc9t07652.itcs.hpecorp.net
+
+[mesos-agent:children]
+mesos-agent-public
+mesos-agent-private

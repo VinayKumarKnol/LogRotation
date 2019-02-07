@@ -1,0 +1,75 @@
+# Oculus Elasticsearch Infrastructure (in HPIT Cloud)
+
+# HPIT Private Cloud inventory file
+
+########## Group Vars ##########
+[hpit-cloud:children]
+elasticsearch-hp-it-cloud
+
+[IS-Apollo-ES-H9:children]
+IS-Apollo-Elasticsearch
+
+[DCOS-ES-Clients:children]
+IS-Apollo-Elasticsearch
+
+########## Normal Group ##########
+[IS-Apollo-Elasticsearch]
+#IS-Apollo-ES-S1-VM4
+#IS-Apollo-ES-S1-VM5
+#IS-Apollo-ES-S2-VM1
+#IS-Apollo-ES-S2-VM2
+#IS-Apollo-ES-S2-VM3
+#IS-Apollo-ES-S2-VM4
+#IS-Apollo-ES-S2-VM5
+#IS-Apollo-ES-S3-VM1
+#IS-Apollo-ES-S3-VM2
+#IS-Apollo-ES-S3-VM3
+#IS-Apollo-ES-S3-VM4
+#IS-Apollo-ES-S3-VM5
+#IS-Apollo-ES-S4-VM1
+#IS-Apollo-ES-S4-VM2
+#IS-Apollo-ES-S4-VM3
+#IS-Apollo-ES-S4-VM4
+IS-Apollo-ES-S4-VM5
+
+[IS-Apollo-Elasticsearch-Masters]
+#IS-Apollo-ES-S1-Master-VM1
+#IS-Apollo-ES-S1-Master-VM2
+#IS-Apollo-ES-S1-Master-VM3
+
+[IS-Apollo-Elasticsearch:children]
+IS-Apollo-Elasticsearch-Masters
+
+[IS-Apollo-Elasticsearch:vars]
+elasticsearch_node_master=false
+elasticsearch_master_group=IS-Apollo-Elasticsearch-Masters
+
+[IS-Apollo-Elasticsearch-Masters:vars]
+elasticsearch_node_master=true
+
+[Elasticsearch-Masters:children]
+IS-Apollo-Elasticsearch-Masters
+
+[elasticsearch-hp-it-cloud]
+
+#IS-Apollo-ES-S1-Master-VM1    	ansible_ssh_host=hc9t07249.itcs.hpecorp.net	data_dir=/opt/mount1 elasticsearch_node_data=false
+#IS-Apollo-ES-S1-Master-VM2    	ansible_ssh_host=hc9t07250.itcs.hpecorp.net	data_dir=/opt/mount1 elasticsearch_node_data=false
+#IS-Apollo-ES-S1-Master-VM3    	ansible_ssh_host=hc9t07251.itcs.hpecorp.net	data_dir=/opt/mount1 elasticsearch_node_data=false
+#IS-Apollo-ES-S1-VM4    					ansible_ssh_host=hc9t07252.itcs.hpecorp.net
+#IS-Apollo-ES-S1-VM5    					ansible_ssh_host=hc9t07253.itcs.hpecorp.net
+#IS-Apollo-ES-S2-VM1    					ansible_ssh_host=hc9t07244.itcs.hpecorp.net
+#IS-Apollo-ES-S2-VM2    					ansible_ssh_host=hc9t07245.itcs.hpecorp.net
+#IS-Apollo-ES-S2-VM3    					ansible_ssh_host=hc9t07246.itcs.hpecorp.net
+#IS-Apollo-ES-S2-VM4    					ansible_ssh_host=hc9t07247.itcs.hpecorp.net
+#IS-Apollo-ES-S2-VM5    					ansible_ssh_host=hc9t07248.itcs.hpecorp.net
+#IS-Apollo-ES-S3-VM1    					ansible_ssh_host=hc9t07234.itcs.hpecorp.net
+#IS-Apollo-ES-S3-VM2    					ansible_ssh_host=hc9t07235.itcs.hpecorp.net
+#IS-Apollo-ES-S3-VM3    					ansible_ssh_host=hc9t07236.itcs.hpecorp.net
+#IS-Apollo-ES-S3-VM4    					ansible_ssh_host=hc9t07237.itcs.hpecorp.net
+#IS-Apollo-ES-S3-VM5    					ansible_ssh_host=hc9t07238.itcs.hpecorp.net
+#IS-Apollo-ES-S4-VM1    					ansible_ssh_host=hc9t07239.itcs.hpecorp.net
+#IS-Apollo-ES-S4-VM2    					ansible_ssh_host=hc9t07240.itcs.hpecorp.net
+#IS-Apollo-ES-S4-VM3    					ansible_ssh_host=hc9t07241.itcs.hpecorp.net
+#IS-Apollo-ES-S4-VM4    					ansible_ssh_host=hc9t07242.itcs.hpecorp.net
+IS-Apollo-ES-S4-VM5    					ansible_ssh_host=hc9t07243.itcs.hpecorp.net
+
