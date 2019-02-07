@@ -17,13 +17,13 @@
 - name: "Accumulate conf files to use for dcos"
   set_fact:
      conf_to_use:
-       - dcos
+       - dcos_conf
   when: "'dcos' in group_names"
 
 - name: "Accumulate conf files to use for elastic nodes."
   set_fact:
     conf_to_use:
-       - elasticsearch-hp-it-cloud 
+       - elasticsearch_conf 
   when: "'elasticsearch-hp-it-cloud' in group_names"
 
 - name: "Generating conf for Logrotation"
