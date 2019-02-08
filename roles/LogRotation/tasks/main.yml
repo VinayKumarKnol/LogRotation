@@ -29,13 +29,13 @@
 - debug: 
     msg: "{{ ansible_play_hosts | map('extract', hostvars, 'group_names') | list  }}"
   run_once: yes
-  register: gps
+  register: locations
 
 - name: "Generating conf for Logrotation"
   template:
     src: "{{ role_path }}/templates/{{ item.name }}.j2" 
     dest: "/etc/logrotate.d/{{ item.name }}.conf"
-  when: "{{ item.group }} in gps"
+  when: "{{ item.group }} in locations"
   with_items:
       - { name: dcos_conf, group: dcos }
       - { name: elasticsearch_conf, group: elasticsearch-hp-it-cloud }
